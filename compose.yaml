@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+      lolminer:
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        container_name: lolminer
+        restart: unless-stopped
+        privileged: true
+        dns:
+          - 8.8.8.8
+          - 1.1.1.1
+        working_dir: /miner/lolminer
+networks:
+  default:
+    driver: bridge
